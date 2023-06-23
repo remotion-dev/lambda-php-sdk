@@ -43,6 +43,7 @@ class RenderParams
     private $forceHeight = null;
     private $forceWidth = null;
     private $audioCodec = null;
+    private $dumpBrowserLogs = false;
     private $rendererFunctionName = null;
     private $proResProfile = null;
     private $pixelFormat = null;
@@ -76,6 +77,7 @@ class RenderParams
         ? int $forceHeight = null,
         ? int $forceWidth = null,
         ? string $audioCodec = null,
+        ? bool $dumpBrowserLogs = false,
         ? int $framesPerLambda = null,
         ? string $rendererFunctionName = null,
         ? string $proResProfile = null,
@@ -109,6 +111,7 @@ class RenderParams
         $this->forceHeight = $forceHeight;
         $this->forceWidth = $forceWidth;
         $this->audioCodec = $audioCodec;
+        $this->dumpBrowserLogs = $dumpBrowserLogs;
         $this->framesPerLambda = $framesPerLambda;
         $this->rendererFunctionName = $rendererFunctionName;
         $this->proResProfile = $proResProfile;
@@ -148,6 +151,7 @@ class RenderParams
             'forceWidth' => $this->getForceWidth(),
             'bucketName' => $this->getBucketName(),
             'audioCodec' => $this->getAudioCodec(),
+            'dumpBrowserLogs' => $this->getDumpBrowserLogs(),
             'type' => 'start'
         ];
 
@@ -172,6 +176,26 @@ class RenderParams
         }
 
         return $parameters;
+    }
+
+    /**
+     * Get the value of dumpBrowserLogs
+     */
+    public function getDumpBrowserLogs()
+    {
+        return $this->dumpBrowserLogs;
+    }
+
+    /**
+     * Set the value of dumpBrowserLogs
+     *
+     * @return  self
+     */
+    public function setDumpBrowserLogs($dumpBrowserLogs)
+    {
+        $this->dumpBrowserLogs = $dumpBrowserLogs;
+
+        return $this;
     }
 
     /**
