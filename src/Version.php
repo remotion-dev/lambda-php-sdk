@@ -1,4 +1,4 @@
 <?php 
 namespace Remotion\LambdaPhp;
 
-const VERSION = "4.0.0-alpha21";
+const VERSION = "4.0.0-alpha22";
