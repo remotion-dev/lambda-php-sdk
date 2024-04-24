@@ -1,13 +1,9 @@
 <?php
 namespace Remotion\LambdaPhp;
 
-use Remotion\LambdaPhp\GetRenderProgressResponse;
-use Aws\Credentials\CredentialProvider;
 use Aws\Lambda\LambdaClient;
 use Exception;
 use stdClass;
-
-require_once __DIR__ . '/Version.php';
 
 class PHPClient
 {
@@ -62,7 +58,7 @@ class PHPClient
             'renderId' => $renderId,
             'bucketName' => $bucketName,
             'type' => 'status',
-            "version" => VERSION,
+            "version" => Semantic::VERSION,
             "s3OutputProvider" => null,
             "logLevel" => $logLevel ,
         );

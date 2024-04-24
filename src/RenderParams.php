@@ -1,17 +1,8 @@
 <?php
+
 namespace Remotion\LambdaPhp;
 
-require_once __DIR__ . '/Version.php';
 use stdClass;
-use VERSION;
-
-class RenderMediaOnLambdaResponse
-{
-    public string $type;
-    public string $bucketName;
-    public string $renderId;
-}
-
 
 class RenderParams
 {
@@ -61,48 +52,48 @@ class RenderParams
     private $pixelFormat = null;
     private $x264Preset = null;
     private $deleteAfter = null;
-    
+
     public function __construct(
-        ?array $data = null,
+        ?array  $data = null,
         ?string $composition = 'main',
-        string $codec = 'h264',
+        string  $codec = 'h264',
         ?string $version = null,
-        string $imageFormat = 'jpeg',
-        ?int $crf = null,
-        ?array $envVariables = null,
-        int $maxRetries = 1,
-        int $jpegQuality = 80,
-        string $privacy = 'public',
-        string $colorSpace = 'default',
-        string $logLevel = 'info',
+        string  $imageFormat = 'jpeg',
+        ?int    $crf = null,
+        ?array  $envVariables = null,
+        int     $maxRetries = 1,
+        int     $jpegQuality = 80,
+        string  $privacy = 'public',
+        string  $colorSpace = 'default',
+        string  $logLevel = 'info',
         ?string $frameRange = null,
         ?string $outName = null,
-        ?int $timeoutInMilliseconds = 30000,
-        ?object $chromiumOptions = null, 
-        ?int $scale = 1, 
-        ?int $everyNthFrame = 1, 
-        ?int $numberOfGifLoops = 0, 
-        ?int $concurrencyPerLambda = 1, 
-        ?array $downloadBehavior = null, 
-        ?bool $muted = false, 
-        ?bool $overwrite = false, 
-        ?int $audioBitrate = null, 
-        ?int $videoBitrate = null, 
-        ?string $webhook = null, 
-        ?int $forceHeight = null, 
-        ?int $forceWidth = null, 
-        ?int $offthreadVideoCacheSizeInBytes = null, 
-        ?string $audioCodec = null, 
-        ?int $framesPerLambda = null, 
-        ?string $rendererFunctionName = null, 
-        ?string $proResProfile = null, 
+        ?int    $timeoutInMilliseconds = 30000,
+        ?object $chromiumOptions = null,
+        ?int    $scale = 1,
+        ?int    $everyNthFrame = 1,
+        ?int    $numberOfGifLoops = 0,
+        ?int    $concurrencyPerLambda = 1,
+        ?array  $downloadBehavior = null,
+        ?bool   $muted = false,
+        ?bool   $overwrite = false,
+        ?int    $audioBitrate = null,
+        ?int    $videoBitrate = null,
+        ?string $webhook = null,
+        ?int    $forceHeight = null,
+        ?int    $forceWidth = null,
+        ?int    $offthreadVideoCacheSizeInBytes = null,
+        ?string $audioCodec = null,
+        ?int    $framesPerLambda = null,
+        ?string $rendererFunctionName = null,
+        ?string $proResProfile = null,
         ?string $pixelFormat = null,
         ?string $x264Preset = null,
         ?string $deleteAfter = null,
         ?string $encodingBufferSize = null,
         ?string $maxRate = null,
-        ?bool $preferLossless = false 
-        )
+        ?bool   $preferLossless = false
+    )
     {
         if ($chromiumOptions === null) {
             $this->chromiumOptions = new stdClass();
@@ -150,6 +141,7 @@ class RenderParams
     }
 
     private array $inputProps = array();
+
     public function serializeParams()
     {
         $parameters = [
@@ -176,7 +168,7 @@ class RenderParams
             'downloadBehavior' => $this->getDownloadBehavior(),
             'muted' => $this->getMuted(),
             'preferLossless' => $this->getPreferLossless(),
-            'version' => VERSION,
+            'version' => Semantic::VERSION,
             'overwrite' => $this->getOverwrite(),
             'audioBitrate' => $this->getAudioBitrate(),
             'videoBitrate' => $this->getVideoBitrate(),
@@ -451,7 +443,7 @@ class RenderParams
         return $this;
     }
 
-      /**
+    /**
      * Get the value of jpegQuality
      */
     public function getJpegQuality()
@@ -491,7 +483,7 @@ class RenderParams
         return $this;
     }
 
-        /**
+    /**
      * Get the value of colorspace
      */
     public function getColorSpace()
@@ -530,6 +522,7 @@ class RenderParams
 
         return $this;
     }
+
     // Setter methods
     public function setFrameRange($frameRange)
     {
@@ -627,6 +620,7 @@ class RenderParams
     {
         $this->muted = $muted;
     }
+
     // Setter methods
     public function setPreferLossless($preferLossless)
     {
@@ -718,6 +712,7 @@ class RenderParams
     {
         return $this->forceWidth;
     }
+
     public function getOffthreadVideoCacheSizeInBytes()
     {
         return $this->offthreadVideoCacheSizeInBytes;
@@ -850,8 +845,8 @@ class RenderParams
 
     public function setX264Preset($x264Preset)
     {
-         $this->x264Preset = $x264Preset;
-         return $this;
+        $this->x264Preset = $x264Preset;
+        return $this;
     }
 
     public function getDeleteAfter()
@@ -861,7 +856,7 @@ class RenderParams
 
     public function setDeleteAfter($deleteAfter)
     {
-         $this->$deleteAfter = $deleteAfter;
-         return $this;
+        $this->$deleteAfter = $deleteAfter;
+        return $this;
     }
 }

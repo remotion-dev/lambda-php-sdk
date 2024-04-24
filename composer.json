@@ -6,7 +6,8 @@
   "license": "proprietary",
   "autoload": {
     "psr-4": {
-      "Remotion\\LambdaPhp\\": "src/"
+      "Remotion\\LambdaPhp\\": "src/",
+      "Remotion\\LambdaPhp\\Tests\\": "tests/"
     }
   },
   "require": {
