@@ -6,52 +6,51 @@ use stdClass;
 
 class RenderParams
 {
+    protected $data = null;
+    protected $bucketName = null;
+    protected $region = null;
+    protected $outName = null;
+    protected $composition = null;
+    protected $serverUrl = null;
+    protected $framesPerLambda = null;
 
-    private $data = null;
-    private $bucketName = null;
-    private $region = null;
-    private $outName = null;
-    private $composition = null;
-    private $serverUrl = null;
-    private $framesPerLambda = null;
-
-    private $codec = 'h264';
-    private $version = "";
-    private $imageFormat = 'jpeg';
-    private $crf = null;
-    private $envVariables = [];
-    private $maxRetries = 1;
-    private $jpegQuality = 80;
-    private $privacy = 'private';
-    private $colorSpace = 'default';
-    private $logLevel = 'info';
-    private $frameRange = null;
-    private $timeoutInMilliseconds = 30000;
-    private $chromiumOptions = null;
-    private $scale = 1;
-    private $everyNthFrame = 1;
-    private $numberOfGifLoops = 0;
-    private $concurrencyPerLambda = 1;
-    private $downloadBehavior = [
+    protected $codec = 'h264';
+    protected $version = "";
+    protected $imageFormat = 'jpeg';
+    protected $crf = null;
+    protected $envVariables = [];
+    protected $maxRetries = 1;
+    protected $jpegQuality = 80;
+    protected $privacy = 'privacy';
+    protected $colorSpace = 'default';
+    protected $logLevel = 'info';
+    protected $frameRange = null;
+    protected $timeoutInMilliseconds = 30000;
+    protected $chromiumOptions = null;
+    protected $scale = 1;
+    protected $everyNthFrame = 1;
+    protected $numberOfGifLoops = 0;
+    protected $concurrencyPerLambda = 1;
+    protected $downloadBehavior = [
         'type' => 'play-in-browser',
     ];
-    private $muted = false;
-    private $preferLossless = false;
-    private $overwrite = false;
-    private $audioBitrate = null;
-    private $videoBitrate = null;
-    private $encodingBufferSize = null;
-    private $maxRate = null;
-    private $webhook = null;
-    private $forceHeight = null;
-    private $forceWidth = null;
-    private $offthreadVideoCacheSizeInBytes = null;
-    private $audioCodec = null;
-    private $rendererFunctionName = null;
-    private $proResProfile = null;
-    private $pixelFormat = null;
-    private $x264Preset = null;
-    private $deleteAfter = null;
+    protected $muted = false;
+    protected $preferLossless = false;
+    protected $overwrite = false;
+    protected $audioBitrate = null;
+    protected $videoBitrate = null;
+    protected $encodingBufferSize = null;
+    protected $maxRate = null;
+    protected $webhook = null;
+    protected $forceHeight = null;
+    protected $forceWidth = null;
+    protected $offthreadVideoCacheSizeInBytes = null;
+    protected $audioCodec = null;
+    protected $rendererFunctionName = null;
+    protected $proResProfile = null;
+    protected $pixelFormat = null;
+    protected $x264Preset = null;
+    protected $deleteAfter = null;
 
     public function __construct(
         ?array  $data = null,

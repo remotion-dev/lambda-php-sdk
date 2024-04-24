@@ -7,10 +7,10 @@ use stdClass;
 
 class PHPClient
 {
-    private $client;
-    private $region;
-    private $serveUrl;
-    private $functionName;
+    protected $client;
+    protected $region;
+    protected $serveUrl;
+    protected $functionName;
 
     public function __construct(string $region, string $serveUrl, string $functionName, ?callable $credential)
     {
