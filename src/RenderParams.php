@@ -856,7 +856,7 @@ class RenderParams
 
     public function setDeleteAfter($deleteAfter)
     {
-        $this->$deleteAfter = $deleteAfter;
+        $this->deleteAfter = $deleteAfter;
         return $this;
     }
 }
