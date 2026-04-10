@@ -61,6 +61,7 @@ class RenderParams
     protected $forcePathStyle = false;
     protected $storageClass = null;
     protected $isProduction = null;
+    protected $sampleRate = 48000;
 
     public function __construct(
         ?array  $data = null,
@@ -198,6 +199,7 @@ class RenderParams
             'downloadBehavior' => $this->getDownloadBehavior(),
             'muted' => $this->getMuted(),
             'preferLossless' => $this->getPreferLossless(),
+            'sampleRate' => $this->getSampleRate(),
             'version' => Semantic::VERSION,
             'overwrite' => $this->getOverwrite(),
             'audioBitrate' => $this->getAudioBitrate(),
@@ -1024,6 +1026,17 @@ class RenderParams
     public function setIsProduction($isProduction)
     {
         $this->isProduction = $isProduction;
+        return $this;
+    }
+
+    public function getSampleRate()
+    {
+        return $this->sampleRate;
+    }
+
+    public function setSampleRate($sampleRate)
+    {
+        $this->sampleRate = $sampleRate;
         return $this;
     }
 }
